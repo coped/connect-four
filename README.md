@@ -9,7 +9,7 @@ ruby lib/main.rb
 ```
 
 ### How To Play
-God forbid you don't know how to play Connect Four. (just kidding, rules for playing can be found [here](https://en.wikipedia.org/wiki/Connect_Four))
+The rules for playing Connect Four can be found [here](https://en.wikipedia.org/wiki/Connect_Four).
 
 # Author
 Dennis Cope, [GITHUB](https://github.com/coped).
