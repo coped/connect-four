@@ -78,14 +78,18 @@ class GameBoard
 
     def check_win(player)
         @board.each do |node|
-            if win?(@board, node, "horizontal") || win?(@board, node, "vertical") || win?(@board, node, "right_diag") || win?(@board, node, "left_diag")
+            wins = [
+                win?(@board, node, "horizontal"),
+                win?(@board, node, "vertical"),
+                win?(@board, node, "right_diag"),
+                win?(@board, node, "left_diag")
+            ]
+            if wins.any?
                 @over = true
                 player.winner = true
                 break
             end
         end
-
-        player.winner = true if @over
 
         if @board.none?{ |node| node.value == " " } && @over == false
             @draw = true
@@ -123,12 +127,11 @@ class GameBoard
     
     def create_coordinates
         coordinates = []
-        6.times do |index|
-            column_index = index
-            7.times do |index|
+        6.times do |column_index|
+            7.times do |row_index|
                 position = []
                 position << column_index
-                position.unshift(index)
+                position.unshift(row_index)
                 coordinates << position
             end
         end
